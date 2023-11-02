@@ -1,5 +1,5 @@
 resource "google_cloud_run_v2_service" "cloudrun" {
-  name = "blog-cms"
+  name     = "blog-cms"
   location = var.gcp_region
   template {
     scaling {
@@ -20,20 +20,20 @@ resource "google_cloud_run_v2_service" "cloudrun" {
       }
 
       env {
-        name = "KEY"
+        name  = "KEY"
         value = var.directus_key
       }
       env {
-        name = "SECRET"
+        name  = "SECRET"
         value = var.directus_secret
       }
       env {
-        name = "ADMIN_EMAIL"
-        value = var.directus_admin_email
+        name  = "ADMIN_EMAIL"
+        value = var.admin_email
       }
       env {
-        name = "ADMIN_PASSWORD"
-        value = var.directus_admin_password
+        name  = "ADMIN_PASSWORD"
+        value = var.admin_password
       }
     }
   }
