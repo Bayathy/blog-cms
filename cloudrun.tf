@@ -6,12 +6,12 @@ resource "google_cloud_run_v2_service" "cloudrun" {
       max_instance_count = 1
     }
 
-    volumes {
-      name = "cloudsql"
-      cloud_sql_instance {
-        instances = [google_sql_database_instance.instance.connection_name]
-      }
-    }
+    # volumes {
+    #   name = "cloudsql"
+    #   cloud_sql_instance {
+    #     instances = [google_sql_database_instance.instance.connection_name]
+    #   }
+    # }
 
     containers {
       image = "directus/directus:latest"
